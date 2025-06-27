@@ -585,7 +585,7 @@ footer .social-links a:hover {
         max-width: 15rem;
         height: 15rem;
     }
-    .portfolio-card .card-text { /* KEEPING THIS FOR NOW, IN CASE YOU RE-ADD TEXT LATER */
+    .portfolio-card .card-text { 
         font-size: 1.2rem;
     }
     .summerdays-container {
