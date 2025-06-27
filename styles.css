@@ -17,8 +17,6 @@ html {
     scroll-padding-top: 5rem; /* Adjust this value based on the height of my nav bar */
 }
 
-/* Removed the incorrect @font-face rule for "Edu QLD Beginner" here */
-
 body {
     font-family: "Edu QLD Beginner", sans-serif; /* This will now correctly use the font linked in index.html */
 }
@@ -55,9 +53,6 @@ nav .center a{
     font-size: 0.85rem;
     font-weight: 400;
 }
-/*nav .center a.active {
-    border-color: #131bad;
-}*/
 
 nav .center a:hover {
     background-color: #131bad;
@@ -131,86 +126,101 @@ section h2::after {
 
 #work-section h1 {
     font-family: 'Work Sans', serif;
-    text-align: justify; /* This was causing the text to stretch, consider text-align: center; or left; */
+    text-align: center; /* Changed from justify for better centering */
     color: #131bad;
     font-size: 1rem;
     padding-top: 1rem;
     font-weight: 350;
+    max-width: 800px; /* Limit width to prevent stretching on large screens */
 }
 
-/* NEW: Styles for the summerdays-container and portfolio-card structure */
+/* Styles for the summerdays-container and portfolio-card structure */
 .summerdays-container {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    justify-content: center; /* Centers cards horizontally */
-    align-items: flex-start; /* Aligns cards to the top of the line */
-    gap: 20px; /* Space between cards */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 15px; /* Reduced gap between cards for a tighter fit */
     padding-top: 2rem;
     margin-bottom: 2rem;
-    max-width: 1200px; /* Adjust based on your desired max width for the card grid */
+    max-width: 1000px; /* Adjusted max-width for the overall card grid */
     width: 100%;
 }
 
 .portfolio-card {
-    background-color: #ffffff; /* Example background for the card */
+    background-color: #ffffff; /* Default background for cards with images */
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden; /* Clips content to rounded corners */
-    width: 20rem; /* Fixed width for each card */
-    height: 20rem; /* Fixed height for each card (adjust as needed to match your design) */
+    overflow: hidden; 
+    width: 16rem; /* Default fixed width for each card */
+    height: 16rem; /* Default fixed height for each card */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Pushes content to the bottom of the card */
+    justify-content: flex-end; /* Align text to the bottom of the card */
     align-items: center;
     text-align: center;
-    position: relative; /* For positioning text on top of the image */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    position: relative; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .portfolio-card:hover {
-    transform: scale(1.03); /* Slight zoom on hover */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* More prominent shadow on hover */
+    transform: scale(1.03); 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
 }
 
+/* Style for images INSIDE portfolio-cards */
 .portfolio-card img {
-    position: absolute; /* Position image to fill the card */
+    position: absolute; 
     top: 0;
     left: 0;
-    width: 100%; /* Image fills card width */
-    height: 100%; /* Image fills card height */
-    object-fit: cover; /* Ensures image covers area without distortion */
-    border-radius: inherit; /* Inherit border-radius from parent .portfolio-card */
-    z-index: 0; /* Behind text */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Ensures image covers the entire card */
+    border-radius: inherit; 
+    z-index: 0; /* Ensures image is behind text */
 }
 
 .portfolio-card .card-text {
-    position: relative; /* Relative to card for positioning within it */
-    color: #131bad; /* Text color for readability */
-    font-family: 'Work Sans', serif; /* Or your preferred font */
+    position: relative; /* Relative to card to position text within it */
+    color: #131bad; 
+    font-family: 'Work Sans', serif; 
     font-size: 1.2rem;
     font-weight: 500;
     z-index: 1; /* Ensures text is above the image */
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability over images */
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    margin-bottom: 1rem; /* Spacing from bottom of card */
+    margin-bottom: 1rem; 
     text-shadow: 0px 0px 5px rgba(255,255,255,0.7); /* Optional: add subtle text shadow */
 }
 
-/* Removed old #work-section .summerdays and #work-section .summerdays img styles */
-
-
-/*#about-section .headshot {
-    padding-top: 2rem;
-    margin-bottom: 2rem;
+/* Specific styles for cards with solid backgrounds as seen in your screenshot */
+.portfolio-card.red-card {
+    background-color: #ee3124; /* Adjust to the exact red you want */
+    justify-content: center; /* Center text vertically for solid color cards */
 }
 
-#about-section .headshot img {
-    width: 20rem;
-    margin-top: 1rem;
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}*/
+.portfolio-card.red-card .card-text {
+    background-color: transparent; /* No background on text for solid color cards */
+    color: #ffffff; /* White text for red background */
+    text-shadow: none; /* No text shadow for solid background */
+    margin-bottom: 0; /* Center vertically */
+    font-size: 1.5rem; /* Larger font size for prominence */
+}
+
+.portfolio-card.summer-card {
+    /* If it's a gradient or specific background image, use background-image here */
+    /* Example: background-image: linear-gradient(to bottom right, #a8e063, #56ab2f); */
+    /* Based on your image, it looks like an image with a filter, so we keep the img tag. */
+    justify-content: flex-end; /* Align text to bottom if it's an image background */
+}
+
+.portfolio-card.summer-card .card-text {
+     /* Adjust text color/background if the image makes it hard to read */
+     background-color: rgba(255, 255, 255, 0.7); /* Keep background for readability over image */
+     color: #131bad;
+}
+
 
 #work-section .bio {
     margin-bottom: 2rem;
@@ -225,35 +235,7 @@ section h2::after {
     font-size: 1rem;
 }
 
-/* Removed problematic absolute positioning from #work-section .social-links */
-/* It will now be handled by the footer styles below */
-#work-section .social-links {
-    /* These styles are no longer needed here as it's moved to the footer */
-    /* padding-top: 15rem; */
-    /* position: absolute; */
-    /* left: 0; */
-    /* top: 850px; */
-    /* font-family: "work sans", serif; */
-    /* font-size: 1rem; */
-    /* text-align: left; */
-}
-
-/* These specific anchor styles for social links are also likely only needed once in the footer */
-/* #work-section .social-links a {
-    padding: 0;
-    margin: 0 0.75rem;
-    font-size: 1rem;
-}
-
-#work-section .social-links a:hover i {
-    color: #131bad;
-    font-size: 1rem;
-}
-
-#work-section .social-links i {
-    color: #131bad;
-    font-weight: 500;
-} */
+/* Removed old problematic social links positioning */
 
 
 /*Experince section*/
@@ -319,42 +301,42 @@ section h2::after {
     justify-content: space-between;
     gap: 10px;
     margin-bottom: 1rem;
-    flex-wrap: wrap; /* Added for responsiveness */
-    justify-content: center; /* Center images within the container */
+    flex-wrap: wrap; 
+    justify-content: center; 
 }
 
 /* These styles apply rounded corners to the images and videos */
 .image-container img,
-.image-container video { /* Apply styles to both img and video */
+.image-container video { 
     margin: 1rem;
     width:20rem;
-    height: auto; /* Ensure video height adjusts proportionally */
+    height: auto; 
     margin-top: 1rem;
-    border-radius: 1rem; /* This is where the corners are rounded */
+    border-radius: 1rem; 
     object-fit: cover;
-    display: block; /* Important for consistent sizing and removing extra space below video */
+    display: block; 
     transition: transform 0.3s ease;
 }
 
 .project-video {
-    width: 100%; /* Make video fill its container */
-    height: 100%; /* Make video fill its container */
-    object-fit: cover; /* Ensures the video covers the area without distorting aspect ratio */
-    border-radius: inherit; /* Inherit the border-radius from the parent .image-hover */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: inherit; 
 }
 
 .image-hover {
     position: relative;
     display: inline-block;
-    width: 20rem; /* Ensure the hover container has a fixed width */
-    height: 20rem; /* Match the height of your images for consistency */
-    overflow: hidden; /* Important: clips content to the rounded corners */
-    border-radius: 1rem; /* Apply border-radius to the hover container itself */
+    width: 20rem; 
+    height: 20rem; 
+    overflow: hidden; 
+    border-radius: 1rem; 
 }
 
 .image-hover:hover img,
-.image-hover:hover video { /* Apply transform to both img and video on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+.image-hover:hover video { 
+    transform: scale(1.05); 
 }
 
 .image-hover::after {
@@ -364,15 +346,15 @@ section h2::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* White semi-transparent overlay */
-    backdrop-filter: blur(5px); /* Apply blur effect */
+    background-color: rgba(255, 255, 255, 0.5); 
+    backdrop-filter: blur(5px); 
     opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: inherit; /* Inherit the border radius from .image-hover */
+    border-radius: inherit; 
 }
 
 .image-hover:hover::after {
-    opacity: 1; /* Show the blur on hover */
+    opacity: 1; 
 }
 
 .hover-text {
@@ -386,7 +368,7 @@ section h2::after {
     font-weight: 300;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 2; /* Ensures the text appears above the image */
+    z-index: 2; 
 }
 
 .image-hover:hover .hover-text {
@@ -408,7 +390,7 @@ section h2::after {
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    gap: 2rem; /*add gap between elements */
+    gap: 2rem; 
 }
 
 #about-section .bio h1,h2 {
@@ -443,7 +425,7 @@ section h2::after {
 
 /*Leave a Message Section*/
 #leave-message-section {
-    min-height: 50vh; /*make it half the viewport height*/
+    min-height: 50vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -470,30 +452,30 @@ footer {
     background-color: #909090;
     color: #fff;
     text-align: center;
-    padding: 1.5rem 0; /* Increased padding for better spacing */
+    padding: 1.5rem 0; 
     font-size: 0.875rem;
-    display: flex; /* Make footer a flex container */
-    flex-direction: column; /* Stack items vertically within footer */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    gap: 0.75rem; /* Space between social links and copyright */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 0.75rem; 
 }
 
 footer .social-links {
-    display: flex; /* Make social links a flex container */
-    gap: 1.5rem; /* Space between individual social links */
-    margin-bottom: 0.5rem; /* Space between social links and copyright text */
+    display: flex; 
+    gap: 1.5rem; 
+    margin-bottom: 0.5rem; 
 }
 
 footer .social-links a {
-    color: #fff; /* White links for a dark footer */
-    font-family: "work sans", serif; /* Apply font */
-    font-size: 1rem; /* Consistent font size */
+    color: #fff; 
+    font-family: "work sans", serif; 
+    font-size: 1rem; 
     transition: color 0.3s ease;
 }
 
 footer .social-links a:hover {
-    color: #131bad; /* Hover color for social links */
+    color: #131bad; 
 }
 
 
@@ -512,24 +494,23 @@ footer .social-links a:hover {
         width: 18rem;
     }
 
-    /* #project-section .project-box{
-        flex: 0 0 14rem; /* adjust width for smaller screens*/
-    /* } */
-
     #skills-section i {
         font-size: 2.5rem;
     }
 
     .portfolio-card {
-        width: 18rem; /* Adjust card size for smaller screens */
-        height: 18rem;
+        width: 14rem; /* Adjusted card size for tablets */
+        height: 14rem;
+    }
+    .portfolio-card .card-text {
+        font-size: 1.1rem; /* Adjust text size for readability */
     }
 }
 
 @media (max-width: 768px) {
     nav {
-        padding: 0 1rem; /* Adjust the navbar's padding for smaller screens */
-        height: 4rem; /* Adjust height for smaller screens if needed */
+        padding: 0 1rem; 
+        height: 4rem; 
     }
 
     nav .center a {
@@ -554,8 +535,11 @@ footer .social-links a:hover {
     }
 
     .portfolio-card {
-        width: 16rem; /* Adjust card size for smaller screens */
-        height: 16rem;
+        width: 12rem; /* Adjusted card size for smaller tablets/laptops */
+        height: 12rem;
+    }
+    .portfolio-card .card-text {
+        font-size: 1rem; /* Adjust text size for readability */
     }
 }
 
@@ -573,18 +557,9 @@ footer .social-links a:hover {
         margin: 0 0.25rem;
     }
 
-    /* The original social links were here, now they are in the footer and handled by footer media queries */
-    /* #about-section .social-links {
-        font-size: 1.75rem;
-    } */
-
     #about-section h2 {
         font-size: 2.4rem;
     }
-
-    /* #about-section .headshot img {
-        width: 12rem;
-    } */
 
     #about-section .summerdays img {
         width: 12rem;
@@ -602,22 +577,26 @@ footer .social-links a:hover {
     }
 
     section {
-        padding: 6rem 1rem; /* adjust padding for smaller screens*/
+        padding: 6rem 1rem; 
     }
 
     #projects-section {
-        padding: 6rem 1rem; /* adjust padding for smaller screens*/
+        padding: 6rem 1rem; 
     }
 
     #leave-message-section {
-        padding: 3rem 1rem; /* adjust padding for smaller screens*/
+        padding: 3rem 1rem; 
     }
 
     .portfolio-card {
-        width: 14rem; /* Adjust card size for even smaller screens */
-        height: 14rem;
+        width: 100%; /* Make cards full width on very small screens for better readability */
+        max-width: 15rem; /* Max width to prevent them from becoming too wide on slightly larger phones */
+        height: 15rem; /* Adjust height for mobile cards */
     }
     .portfolio-card .card-text {
-        font-size: 1rem; /* Adjust text size for readability */
+        font-size: 1.2rem; /* Ensure text is readable on mobile */
+    }
+    .summerdays-container {
+        gap: 10px; /* Smaller gap on mobile */
     }
 }
