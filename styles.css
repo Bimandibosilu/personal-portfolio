@@ -19,6 +19,9 @@ html {
 
 body {
     font-family: "Edu QLD Beginner", sans-serif; /* This will now correctly use the font linked in index.html */
+    display: flex; /* Make body a flex container*/
+    flex-direction: column; /* Stack children vertically*/
+    min-height: 100vh; /* Ensure body takes at least full viewport height*/
 }
 
 a {
@@ -446,6 +449,8 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+    margin-top: auto; /* CRUCIAL: Pushes the footer to the bottom within the flex container*/
+    width: 100%; /* Ensure footer spans full width if not already */
 }
 
 footer .social-links {
