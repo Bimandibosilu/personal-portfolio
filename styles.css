@@ -126,12 +126,12 @@ section h2::after {
 
 #work-section h1 {
     font-family: 'Work Sans', serif;
-    text-align: center; /* Changed from justify for better centering */
+    text-align: justify; 
     color: #131bad;
     font-size: 1rem;
     padding-top: 1rem;
     font-weight: 350;
-    max-width: 800px; /* Limit width to prevent stretching on large screens */
+    max-width: 800px; 
 }
 
 /* Styles for the summerdays-container and portfolio-card structure */
@@ -181,14 +181,6 @@ section h2::after {
     left: 0;
     z-index: 0; /* Ensures image is behind any potential text overlays */
 }
-
-/* Removed .portfolio-card .card-text rules entirely since you're removing text */
-/* If you decide to add text back, you'd re-add them as needed. */
-
-
-/* Specific styles for cards */
-/* If red-card now has an image, remove the background-color and text centering */
-/* The img rule above handles its display. */
 
 .portfolio-card.summer-card {
     /* This card should also just rely on the general .portfolio-card img rule */
