@@ -151,15 +151,15 @@ section h2::after {
     background-color: #ffffff; /* Default background for cards with images */
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden; 
+    overflow: hidden; /* CRUCIAL: Clips overflowing content like images */
     width: 16rem; /* Default fixed width for each card */
     height: 16rem; /* Default fixed height for each card */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Align text to the bottom of the card */
-    align-items: center;
+    flex-direction: column; /* Changed from column to center content */
+    justify-content: center; /* Vertically center content if only text or a main image */
+    align-items: center; /* Horizontally center content */
     text-align: center;
-    position: relative; 
+    position: relative; /* CRUCIAL: Establishes positioning context for children */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
@@ -170,18 +170,25 @@ section h2::after {
 
 /* Style for images INSIDE portfolio-cards */
 .portfolio-card img {
-    position: absolute; 
-    top: 0;
-    left: 0;
+    /* Ensure image fills its parent card */
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* Ensures image covers the entire card */
-    border-radius: inherit; 
+    object-fit: cover; /* Ensures image covers the entire card, cropping as needed */
+    border-radius: inherit; /* Inherit border-radius from parent .portfolio-card */
+    display: block; /* Remove any inline-block spacing issues */
+    /* Remove position: absolute; if we want it as a regular background filler, or keep if you need it layered specifically */
+    /* For image_bda87e.jpg, the people image needs to be the card's background image */
+    position: absolute; /* Keep absolute if text is an overlay */
+    top: 0;
+    left: 0;
     z-index: 0; /* Ensures image is behind text */
 }
 
 .portfolio-card .card-text {
-    position: relative; /* Relative to card to position text within it */
+    position: absolute; /* Changed from relative to absolute for consistent overlay */
+    bottom: 1rem; /* Positioning text from the bottom for consistency with previous designs */
+    left: 50%;
+    transform: translateX(-50%);
     color: #131bad; 
     font-family: 'Work Sans', serif; 
     font-size: 1.2rem;
@@ -190,13 +197,16 @@ section h2::after {
     background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability over images */
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    margin-bottom: 1rem; 
+    /* margin-bottom: 1rem; REMOVED as bottom property handles vertical positioning */
     text-shadow: 0px 0px 5px rgba(255,255,255,0.7); /* Optional: add subtle text shadow */
+    white-space: nowrap; /* Prevents text from wrapping if it fits on one line */
 }
 
 /* Specific styles for cards with solid backgrounds as seen in your screenshot */
 .portfolio-card.red-card {
     background-color: #ee3124; /* Adjust to the exact red you want */
+    /* When it's a solid background, there should be no <img> tag in HTML for it */
+    /* So we also need to adjust card-text positioning for center */
     justify-content: center; /* Center text vertically for solid color cards */
 }
 
@@ -206,19 +216,17 @@ section h2::after {
     text-shadow: none; /* No text shadow for solid background */
     margin-bottom: 0; /* Center vertically */
     font-size: 1.5rem; /* Larger font size for prominence */
+    position: relative; /* Set to relative so it just centers within the flex container */
+    transform: none; /* Remove transform if relative */
+    left: auto; /* Remove left positioning */
+    bottom: auto; /* Remove bottom positioning */
 }
 
 .portfolio-card.summer-card {
-    /* If it's a gradient or specific background image, use background-image here */
-    /* Example: background-image: linear-gradient(to bottom right, #a8e063, #56ab2f); */
-    /* Based on your image, it looks like an image with a filter, so we keep the img tag. */
-    justify-content: flex-end; /* Align text to bottom if it's an image background */
-}
-
-.portfolio-card.summer-card .card-text {
-     /* Adjust text color/background if the image makes it hard to read */
-     background-color: rgba(255, 255, 255, 0.7); /* Keep background for readability over image */
-     color: #131bad;
+    /* This card in image_bda87e.jpg looks like it has an image background or a heavily stylized image */
+    /* We'll keep the img tag in HTML for now as it seemed to have specific art. */
+    /* Adjust text color/background if the image makes it hard to read */
+    /* Keep .card-text styles from main .portfolio-card as it's an image overlay */
 }
 
 
@@ -499,11 +507,11 @@ footer .social-links a:hover {
     }
 
     .portfolio-card {
-        width: 14rem; /* Adjusted card size for tablets */
+        width: 14rem; 
         height: 14rem;
     }
     .portfolio-card .card-text {
-        font-size: 1.1rem; /* Adjust text size for readability */
+        font-size: 1.1rem; 
     }
 }
 
@@ -535,11 +543,11 @@ footer .social-links a:hover {
     }
 
     .portfolio-card {
-        width: 12rem; /* Adjusted card size for smaller tablets/laptops */
+        width: 12rem; 
         height: 12rem;
     }
     .portfolio-card .card-text {
-        font-size: 1rem; /* Adjust text size for readability */
+        font-size: 1rem; 
     }
 }
 
@@ -589,14 +597,14 @@ footer .social-links a:hover {
     }
 
     .portfolio-card {
-        width: 100%; /* Make cards full width on very small screens for better readability */
-        max-width: 15rem; /* Max width to prevent them from becoming too wide on slightly larger phones */
-        height: 15rem; /* Adjust height for mobile cards */
+        width: 100%; 
+        max-width: 15rem; 
+        height: 15rem; 
     }
     .portfolio-card .card-text {
-        font-size: 1.2rem; /* Ensure text is readable on mobile */
+        font-size: 1.2rem; 
     }
     .summerdays-container {
-        gap: 10px; /* Smaller gap on mobile */
+        gap: 10px; 
     }
 }
