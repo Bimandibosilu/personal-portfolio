@@ -126,20 +126,20 @@ section h2::after {
 
 #work-section h1 {
     font-family: 'Work Sans', serif;
-    text-align: justify; 
+    text-align: justify;
     color: #131bad;
     font-size: 1rem;
     padding-top: 1rem;
     font-weight: 350;
-    max-width: 800px; 
+    max-width: 800px;
 }
 
 /* Styles for the summerdays-container and portfolio-card structure */
 .summerdays-container {
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    align-items: flex-start; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     gap: 15px; /* Reduced gap between cards for a tighter fit */
     padding-top: 2rem;
     margin-bottom: 2rem;
@@ -160,19 +160,18 @@ section h2::after {
     align-items: center; /* Horizontally centers content */
     text-align: center;
     position: relative; /* CRUCIAL: Establishes positioning context for children */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .portfolio-card:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 /* Style for images INSIDE portfolio-cards */
 .portfolio-card img {
-    /* Ensure image fills its parent card */
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     object-fit: cover; /* Ensures image covers the entire card, cropping as needed */
     border-radius: inherit; /* Inherit border-radius from parent .portfolio-card */
     display: block; /* Remove any inline-block spacing issues */
@@ -181,6 +180,29 @@ section h2::after {
     left: 0;
     z-index: 0; /* Ensures image is behind any potential text overlays */
 }
+
+/* Specific styles for red-card, if it has an image inside, just ensure no conflicting background */
+.portfolio-card.red-card {
+    /* If this card has an image, we typically don't need a strong background-color here. */
+    /* If you want a slight tint over the image, you can use rgba: */
+    /* background-color: rgba(238, 49, 36, 0.2); */
+    /* Otherwise, just ensure no styles are hiding the image. */
+    /* The general .portfolio-card img rule above will handle the image display. */
+}
+
+/* If you ever want text for 'STAY TUNED' on top of an image in the future,
+   you'd add a div with class 'card-text' inside the red-card and style it like:
+.portfolio-card.red-card .card-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    z-index: 1;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+*/
 
 .portfolio-card.summer-card {
     /* This card should also just rely on the general .portfolio-card img rule */
@@ -266,42 +288,42 @@ section h2::after {
     justify-content: space-between;
     gap: 10px;
     margin-bottom: 1rem;
-    flex-wrap: wrap; 
-    justify-content: center; 
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* These styles apply rounded corners to the images and videos */
 .image-container img,
-.image-container video { 
+.image-container video {
     margin: 1rem;
     width:20rem;
-    height: auto; 
+    height: auto;
     margin-top: 1rem;
-    border-radius: 1rem; 
+    border-radius: 1rem;
     object-fit: cover;
-    display: block; 
+    display: block;
     transition: transform 0.3s ease;
 }
 
 .project-video {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    border-radius: inherit; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
 }
 
 .image-hover {
     position: relative;
     display: inline-block;
-    width: 20rem; 
-    height: 20rem; 
-    overflow: hidden; 
-    border-radius: 1rem; 
+    width: 20rem;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 1rem;
 }
 
 .image-hover:hover img,
-.image-hover:hover video { 
-    transform: scale(1.05); 
+.image-hover:hover video {
+    transform: scale(1.05);
 }
 
 .image-hover::after {
@@ -311,15 +333,15 @@ section h2::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); 
-    backdrop-filter: blur(5px); 
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
     opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: inherit; 
+    border-radius: inherit;
 }
 
 .image-hover:hover::after {
-    opacity: 1; 
+    opacity: 1;
 }
 
 .hover-text {
@@ -333,7 +355,7 @@ section h2::after {
     font-weight: 300;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 2; 
+    z-index: 2;
 }
 
 .image-hover:hover .hover-text {
@@ -355,7 +377,7 @@ section h2::after {
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    gap: 2rem; 
+    gap: 2rem;
 }
 
 #about-section .bio h1,h2 {
@@ -390,7 +412,7 @@ section h2::after {
 
 /*Leave a Message Section*/
 #leave-message-section {
-    min-height: 50vh; 
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -417,30 +439,30 @@ footer {
     background-color: #909090;
     color: #fff;
     text-align: center;
-    padding: 1.5rem 0; 
+    padding: 1.5rem 0;
     font-size: 0.875rem;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 0.75rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
 }
 
 footer .social-links {
-    display: flex; 
-    gap: 1.5rem; 
-    margin-bottom: 0.5rem; 
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 footer .social-links a {
-    color: #fff; 
-    font-family: "work sans", serif; 
-    font-size: 1rem; 
+    color: #fff;
+    font-family: "work sans", serif;
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 footer .social-links a:hover {
-    color: #131bad; 
+    color: #131bad;
 }
 
 
@@ -464,18 +486,18 @@ footer .social-links a:hover {
     }
 
     .portfolio-card {
-        width: 14rem; 
+        width: 14rem;
         height: 14rem;
     }
     .portfolio-card .card-text { /* KEEPING THIS FOR NOW, IN CASE YOU RE-ADD TEXT LATER */
-        font-size: 1.1rem; 
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 768px) {
     nav {
-        padding: 0 1rem; 
-        height: 4rem; 
+        padding: 0 1rem;
+        height: 4rem;
     }
 
     nav .center a {
@@ -500,11 +522,11 @@ footer .social-links a:hover {
     }
 
     .portfolio-card {
-        width: 12rem; 
+        width: 12rem;
         height: 12rem;
     }
     .portfolio-card .card-text { /* KEEPING THIS FOR NOW, IN CASE YOU RE-ADD TEXT LATER */
-        font-size: 1rem; 
+        font-size: 1rem;
     }
 }
 
@@ -542,26 +564,26 @@ footer .social-links a:hover {
     }
 
     section {
-        padding: 6rem 1rem; 
+        padding: 6rem 1rem;
     }
 
     #projects-section {
-        padding: 6rem 1rem; 
+        padding: 6rem 1rem;
     }
 
     #leave-message-section {
-        padding: 3rem 1rem; 
+        padding: 3rem 1rem;
     }
 
     .portfolio-card {
-        width: 100%; 
-        max-width: 15rem; 
-        height: 15rem; 
+        width: 100%;
+        max-width: 15rem;
+        height: 15rem;
     }
     .portfolio-card .card-text { /* KEEPING THIS FOR NOW, IN CASE YOU RE-ADD TEXT LATER */
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
     }
     .summerdays-container {
-        gap: 10px; 
+        gap: 10px;
     }
 }
