@@ -1,0 +1,89 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimandi Portfolio</title>
+  <link rel="stylesheet" href="styles.css"></link>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left">
+      <a href="#about-section"> Bimandi Bosilu </a>
+    </div>
+    <div class="right">
+      <a href="#about-section"> About </a>
+       <!-- <a href="#experience-section">Experience</a> -->
+      <a href="#projects-section"> Projects</a>
+      <a href="#skills-section"> Skills </a>
+      <a href="#leave-message-section">Leave a message!</a>
+    </div>
+    </nav>
+  </header>
+  <section id ="about-section">
+    <h2>Hey World, I'm Bimandi!</h2>
+    <div class="headshot">
+      <img src="C:\Users\94770\Downloads\77541331-2067-44e3-a4d9-31c61e7b9a82.jpg" alt="headshot">
+    </div>
+    <div class="bio">
+      <p>
+        Hey! I'm Bimandi, a SLIIT student who's excited about UI design, with a background in IT, I'm well equipped with a technical skillset and an eagerness to learn!<br><br>
+        Outside of career and academics, I enjoy photography, watching documentaries and listening to podcasts.
+      </p>
+    </div>
+    <div class="social-links">
+      <!--<a href =" " target="blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+        <a href=" " target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href=" " target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a> -->
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section id="projects-section">
+    <h2>projects</h2>
+
+    <!--projects subsection
+    <div class="projects-subsection">
+    </div>
+  -->
+  <!-- design subsection-->
+  <div class="projects-subsection">
+    <h3>Design</h3>
+    <div class="projects-scroll-container">
+      <a href="https://www.figma.com/proto/gHvAnPeZMV53wIjQTrzDTO/SummerDays?node-id=2175-52&t=G7dRPuNb36n0MKIq-1" target="_blank" class="project-box">
+       <img src=""C:\Users\94770\Desktop\studies\Y1S1\Summer Days.png"" alt="Summer Days">
+       <h4> Summer Days</h4>
+       <h5><em> Figma</em></h5>
+       <p> I designed a clothing website targeted towards y2k styles.</p>
+     </a>
+   </div>
+ </section>
+ <div class="divider"></div>
+ <section id="skills-section">
+   <h2> Skills </h2>
+   <div class="skills-container">
+     <i class=fa-brands fa-java"></i>
+     <i class=fa-brands fa-figma"></i>
+     <i class=fa-brands fa-blender"></i>
+     <i class=fa-brands fa-canva"></i>
+   </div>
+ </section>
+ <div class="divider"></div>
+ <section id="leave-message-section">
+   <h2>Leave a Message!</h2>
+   <p>coming soon :)</p>
+ </section>
+</body>
+<footer>
+  <p>&copy; 2024 Steph Ran. All Rights Reserved.</p>
+</footer>
+</html>
