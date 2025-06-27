@@ -189,13 +189,6 @@ section h2::after {
 /* Specific styles for cards */
 /* If red-card now has an image, remove the background-color and text centering */
 /* The img rule above handles its display. */
-.portfolio-card.red-card {
-    /* If this card now contains an image, remove these rules or set them to default */
-    /* Keeping the background-color only if you want a fallback or tint */
-    background-color: #ee3124; /* Keep this if you want a red overlay or base color for the image */
-    /* Remove justify-content, it's handled by .portfolio-card general rule now */
-    /* Remove any .red-card .card-text specific rules */
-}
 
 .portfolio-card.summer-card {
     /* This card should also just rely on the general .portfolio-card img rule */
