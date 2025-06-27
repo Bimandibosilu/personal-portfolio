@@ -17,7 +17,7 @@ html {
     scroll-padding-top: 5rem; /* Adjust this value based on the height of my nav bar */
 }
 
-/* REMOVED the incorrect @font-face rule for "Edu QLD Beginner" here */
+/* Removed the incorrect @font-face rule for "Edu QLD Beginner" here */
 
 body {
     font-family: "Edu QLD Beginner", sans-serif; /* This will now correctly use the font linked in index.html */
@@ -131,36 +131,74 @@ section h2::after {
 
 #work-section h1 {
     font-family: 'Work Sans', serif;
-    text-align: justify;
+    text-align: justify; /* This was causing the text to stretch, consider text-align: center; or left; */
     color: #131bad;
     font-size: 1rem;
     padding-top: 1rem;
     font-weight: 350;
 }
 
-#work-section .summerdays {
-    justify-content: space-between; /* This only works for flex/grid parent */
-    /* Remove duplicate gap property if not intended for grid/flex */
-    gap: 10px; 
+/* NEW: Styles for the summerdays-container and portfolio-card structure */
+.summerdays-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: center; /* Centers cards horizontally */
+    align-items: flex-start; /* Aligns cards to the top of the line */
+    gap: 20px; /* Space between cards */
     padding-top: 2rem;
     margin-bottom: 2rem;
-    /* ADDED: To make images align horizontally like cards */
-    display: flex; /* Makes the container a flex container */
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    justify-content: center; /* Centers items horizontally */
-    align-items: flex-start; /* Aligns items to the start of the cross axis */
+    max-width: 1200px; /* Adjust based on your desired max width for the card grid */
+    width: 100%;
 }
 
-
-#work-section .summerdays img {
-    margin: 1rem;
-    width:20rem; /* Fixed width */
-    margin-top: 1rem;
+.portfolio-card {
+    background-color: #ffffff; /* Example background for the card */
     border-radius: 1rem;
-    object-fit: cover;
-    /* ADDED: Explicit height for consistent card sizing */
-    height: 20rem; /* Or adjust as needed to match your desired card height */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden; /* Clips content to rounded corners */
+    width: 20rem; /* Fixed width for each card */
+    height: 20rem; /* Fixed height for each card (adjust as needed to match your design) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes content to the bottom of the card */
+    align-items: center;
+    text-align: center;
+    position: relative; /* For positioning text on top of the image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
+
+.portfolio-card:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* More prominent shadow on hover */
+}
+
+.portfolio-card img {
+    position: absolute; /* Position image to fill the card */
+    top: 0;
+    left: 0;
+    width: 100%; /* Image fills card width */
+    height: 100%; /* Image fills card height */
+    object-fit: cover; /* Ensures image covers area without distortion */
+    border-radius: inherit; /* Inherit border-radius from parent .portfolio-card */
+    z-index: 0; /* Behind text */
+}
+
+.portfolio-card .card-text {
+    position: relative; /* Relative to card for positioning within it */
+    color: #131bad; /* Text color for readability */
+    font-family: 'Work Sans', serif; /* Or your preferred font */
+    font-size: 1.2rem;
+    font-weight: 500;
+    z-index: 1; /* Ensures text is above the image */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem; /* Spacing from bottom of card */
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.7); /* Optional: add subtle text shadow */
+}
+
+/* Removed old #work-section .summerdays and #work-section .summerdays img styles */
+
 
 /*#about-section .headshot {
     padding-top: 2rem;
@@ -187,17 +225,21 @@ section h2::after {
     font-size: 1rem;
 }
 
+/* Removed problematic absolute positioning from #work-section .social-links */
+/* It will now be handled by the footer styles below */
 #work-section .social-links {
-    padding-top: 15rem;
-    position: absolute;
-    left: 0;
-    top: 850px; /* This absolute positioning can be problematic for responsiveness */
-    font-family: "work sans", serif;
-    font-size: 1rem;
-    text-align: left;
+    /* These styles are no longer needed here as it's moved to the footer */
+    /* padding-top: 15rem; */
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: 850px; */
+    /* font-family: "work sans", serif; */
+    /* font-size: 1rem; */
+    /* text-align: left; */
 }
 
-#work-section .social-links a {
+/* These specific anchor styles for social links are also likely only needed once in the footer */
+/* #work-section .social-links a {
     padding: 0;
     margin: 0 0.75rem;
     font-size: 1rem;
@@ -205,15 +247,14 @@ section h2::after {
 
 #work-section .social-links a:hover i {
     color: #131bad;
-    /*transform: scale(1.2);
-    transition: transform 0.3s, color 0.3s;*/
     font-size: 1rem;
 }
 
 #work-section .social-links i {
     color: #131bad;
     font-weight: 500;
-}
+} */
+
 
 /*Experince section*/
 #experience-section {
@@ -424,13 +465,37 @@ section h2::after {
     line-height: 1.6;
 }
 
+/* Modified Footer Styles to include social links */
 footer {
     background-color: #909090;
     color: #fff;
     text-align: center;
-    padding: 0.7rem 0;
+    padding: 1.5rem 0; /* Increased padding for better spacing */
     font-size: 0.875rem;
+    display: flex; /* Make footer a flex container */
+    flex-direction: column; /* Stack items vertically within footer */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    gap: 0.75rem; /* Space between social links and copyright */
 }
+
+footer .social-links {
+    display: flex; /* Make social links a flex container */
+    gap: 1.5rem; /* Space between individual social links */
+    margin-bottom: 0.5rem; /* Space between social links and copyright text */
+}
+
+footer .social-links a {
+    color: #fff; /* White links for a dark footer */
+    font-family: "work sans", serif; /* Apply font */
+    font-size: 1rem; /* Consistent font size */
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: #131bad; /* Hover color for social links */
+}
+
 
 /*media queries for responsiveness*/
 @media (max-width: 992px) {
@@ -447,12 +512,17 @@ footer {
         width: 18rem;
     }
 
-    #project-section .project-box{
+    /* #project-section .project-box{
         flex: 0 0 14rem; /* adjust width for smaller screens*/
-    }
+    /* } */
 
     #skills-section i {
         font-size: 2.5rem;
+    }
+
+    .portfolio-card {
+        width: 18rem; /* Adjust card size for smaller screens */
+        height: 18rem;
     }
 }
 
@@ -482,6 +552,11 @@ footer {
     #skills-section .skills-container {
         gap: 1.25rem;
     }
+
+    .portfolio-card {
+        width: 16rem; /* Adjust card size for smaller screens */
+        height: 16rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -498,9 +573,10 @@ footer {
         margin: 0 0.25rem;
     }
 
-    #about-section .social-links {
+    /* The original social links were here, now they are in the footer and handled by footer media queries */
+    /* #about-section .social-links {
         font-size: 1.75rem;
-    }
+    } */
 
     #about-section h2 {
         font-size: 2.4rem;
@@ -535,5 +611,13 @@ footer {
 
     #leave-message-section {
         padding: 3rem 1rem; /* adjust padding for smaller screens*/
+    }
+
+    .portfolio-card {
+        width: 14rem; /* Adjust card size for even smaller screens */
+        height: 14rem;
+    }
+    .portfolio-card .card-text {
+        font-size: 1rem; /* Adjust text size for readability */
     }
 }
