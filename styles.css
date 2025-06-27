@@ -155,9 +155,9 @@ section h2::after {
     width: 16rem; /* Default fixed width for each card */
     height: 16rem; /* Default fixed height for each card */
     display: flex;
-    flex-direction: column; /* Changed from column to center content */
-    justify-content: center; /* Vertically center content if only text or a main image */
-    align-items: center; /* Horizontally center content */
+    flex-direction: column; /* Ensures flex container behavior for content inside */
+    justify-content: center; /* Vertically centers content */
+    align-items: center; /* Horizontally centers content */
     text-align: center;
     position: relative; /* CRUCIAL: Establishes positioning context for children */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
@@ -176,57 +176,29 @@ section h2::after {
     object-fit: cover; /* Ensures image covers the entire card, cropping as needed */
     border-radius: inherit; /* Inherit border-radius from parent .portfolio-card */
     display: block; /* Remove any inline-block spacing issues */
-    /* Remove position: absolute; if we want it as a regular background filler, or keep if you need it layered specifically */
-    /* For image_bda87e.jpg, the people image needs to be the card's background image */
-    position: absolute; /* Keep absolute if text is an overlay */
+    position: absolute; /* Keep absolute so it fills the card and allows for potential overlays */
     top: 0;
     left: 0;
-    z-index: 0; /* Ensures image is behind text */
+    z-index: 0; /* Ensures image is behind any potential text overlays */
 }
 
-.portfolio-card .card-text {
-    position: absolute; /* Changed from relative to absolute for consistent overlay */
-    bottom: 1rem; /* Positioning text from the bottom for consistency with previous designs */
-    left: 50%;
-    transform: translateX(-50%);
-    color: #131bad; 
-    font-family: 'Work Sans', serif; 
-    font-size: 1.2rem;
-    font-weight: 500;
-    z-index: 1; /* Ensures text is above the image */
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability over images */
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    /* margin-bottom: 1rem; REMOVED as bottom property handles vertical positioning */
-    text-shadow: 0px 0px 5px rgba(255,255,255,0.7); /* Optional: add subtle text shadow */
-    white-space: nowrap; /* Prevents text from wrapping if it fits on one line */
-}
+/* Removed .portfolio-card .card-text rules entirely since you're removing text */
+/* If you decide to add text back, you'd re-add them as needed. */
 
-/* Specific styles for cards with solid backgrounds as seen in your screenshot */
+
+/* Specific styles for cards */
+/* If red-card now has an image, remove the background-color and text centering */
+/* The img rule above handles its display. */
 .portfolio-card.red-card {
-    background-color: #ee3124; /* Adjust to the exact red you want */
-    /* When it's a solid background, there should be no <img> tag in HTML for it */
-    /* So we also need to adjust card-text positioning for center */
-    justify-content: center; /* Center text vertically for solid color cards */
-}
-
-.portfolio-card.red-card .card-text {
-    background-color: transparent; /* No background on text for solid color cards */
-    color: #ffffff; /* White text for red background */
-    text-shadow: none; /* No text shadow for solid background */
-    margin-bottom: 0; /* Center vertically */
-    font-size: 1.5rem; /* Larger font size for prominence */
-    position: relative; /* Set to relative so it just centers within the flex container */
-    transform: none; /* Remove transform if relative */
-    left: auto; /* Remove left positioning */
-    bottom: auto; /* Remove bottom positioning */
+    /* If this card now contains an image, remove these rules or set them to default */
+    /* Keeping the background-color only if you want a fallback or tint */
+    background-color: #ee3124; /* Keep this if you want a red overlay or base color for the image */
+    /* Remove justify-content, it's handled by .portfolio-card general rule now */
+    /* Remove any .red-card .card-text specific rules */
 }
 
 .portfolio-card.summer-card {
-    /* This card in image_bda87e.jpg looks like it has an image background or a heavily stylized image */
-    /* We'll keep the img tag in HTML for now as it seemed to have specific art. */
-    /* Adjust text color/background if the image makes it hard to read */
-    /* Keep .card-text styles from main .portfolio-card as it's an image overlay */
+    /* This card should also just rely on the general .portfolio-card img rule */
 }
 
 
@@ -510,7 +482,7 @@ footer .social-links a:hover {
         width: 14rem; 
         height: 14rem;
     }
-    .portfolio-card .card-text {
+    .portfolio-card .card-text { /* KEEPING THIS FOR NOW, IN CASE YOU RE-ADD TEXT LATER */
         font-size: 1.1rem; 
     }
 }
@@ -546,7 +518,7 @@ footer .social-links a:hover {
         width: 12rem; 
         height: 12rem;
     }
-    .portfolio-card .card-text {
+    .portfolio-card .card-text { /* KEEPING THIS FOR NOW, IN CASE YOU RE-ADD TEXT LATER */
         font-size: 1rem; 
     }
 }
@@ -601,7 +573,7 @@ footer .social-links a:hover {
         max-width: 15rem; 
         height: 15rem; 
     }
-    .portfolio-card .card-text {
+    .portfolio-card .card-text { /* KEEPING THIS FOR NOW, IN CASE YOU RE-ADD TEXT LATER */
         font-size: 1.2rem; 
     }
     .summerdays-container {
