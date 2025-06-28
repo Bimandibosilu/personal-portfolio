@@ -329,6 +329,8 @@ section h2::after {
     transform: scale(1.05);
 }
 
+/* REMOVED THE FOLLOWING RULES TO ELIMINATE THE BLURRY OVERLAY */
+/*
 .image-hover::after {
     content: '';
     position: absolute;
@@ -346,6 +348,7 @@ section h2::after {
 .image-hover:hover::after {
     opacity: 1;
 }
+*/
 
 .hover-text {
     font-family: 'Avenir', sans-serif;
