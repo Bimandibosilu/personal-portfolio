@@ -3,7 +3,7 @@
     --text-color: #1a1c20;
     --link-color: #ffffff;
     --background-color: #eeeff1;
-    font-size: 17px; /*set the base font size */
+    font-size: 17px; 
 }
 
 * {
@@ -14,14 +14,14 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* Adjust this value based on the height of my nav bar */
+    scroll-padding-top: 5rem;
 }
 
 body {
-    font-family: "Edu QLD Beginner", sans-serif; /* This will now correctly use the font linked in index.html */
-    display: flex; /* Make body a flex container*/
-    flex-direction: column; /* Stack children vertically*/
-    min-height: 100vh; /* Ensure body takes at least full viewport height*/
+    font-family: "Edu QLD Beginner", sans-serif; 
+    display: flex; 
+    flex-direction: column;
+    min-height: 100vh; 
 }
 
 a {
@@ -142,26 +142,26 @@ section h2::after {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 15px; /* Reduced gap between cards for a tighter fit */
+    gap: 15px; 
     padding-top: 2rem;
     margin-bottom: 2rem;
-    max-width: 1000px; /* Adjusted max-width for the overall card grid */
+    max-width: 1000px; 
     width: 100%;
 }
 
 .portfolio-card {
-    background-color: #ffffff; /* Default background for cards with images */
+    background-color: #ffffff; 
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden; /* CRUCIAL: Clips overflowing content like images */
-    width: 16rem; /* Default fixed width for each card */
-    height: 16rem; /* Default fixed height for each card */
+    overflow: hidden; 
+    width: 16rem; 
+    height: 16rem; 
     display: flex;
-    flex-direction: column; /* Ensures flex container behavior for content inside */
-    justify-content: center; /* Vertically centers content */
-    align-items: center; /* Horizontally centers content */
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    position: relative; /* CRUCIAL: Establishes positioning context for children */
+    position: relative; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -174,10 +174,10 @@ section h2::after {
 .portfolio-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image covers the entire card, cropping as needed */
+    object-fit: cover; 
     border-radius: inherit; /* Inherit border-radius from parent .portfolio-card */
-    display: block; /* Remove any inline-block spacing issues */
-    position: absolute; /* Keep absolute so it fills the card and allows for potential overlays */
+    display: block; 
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 0; /* Ensures image is behind any potential text overlays */
@@ -196,6 +196,7 @@ section h2::after {
     font-weight: 400;
     font-size: 1rem;
 }
+
 
 
 /*Experince section*/
@@ -285,7 +286,6 @@ section h2::after {
     border-radius: inherit;
 }
 
-/* General image-hover for zoom only (applies to all, including art) */
 .image-hover {
     position: relative;
     display: inline-block;
@@ -300,27 +300,8 @@ section h2::after {
     transform: scale(1.05); /* This is your zoom effect! */
 }
 
-/* NEW: Styles for blur and hover text, ONLY applied to elements with 'project-visual' class */
-.project-visual::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* White overlay for blur */
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: inherit;
-    z-index: 1; /* Ensure it's above the image but below text */
-}
 
-.project-visual:hover::after {
-    opacity: 1;
-}
-
-.project-visual .hover-text {
+.hover-text {
     font-family: 'Avenir', sans-serif;
     position: absolute;
     top: 50%;
@@ -331,10 +312,10 @@ section h2::after {
     font-weight: 300;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 2; /* Ensure text is above blur */
+    z-index: 2;
 }
 
-.project-visual:hover .hover-text {
+.image-hover:hover .hover-text {
     opacity: 1;
 }
 
@@ -423,8 +404,8 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    margin-top: auto; /* CRUCIAL: Pushes the footer to the bottom within the flex container*/
-    width: 100%; /* Ensure footer spans full width if not already */
+    margin-top: auto; 
+    width: 100%; 
 }
 
 footer .social-links {
