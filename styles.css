@@ -326,10 +326,10 @@ section h2::after {
 
 .image-hover:hover img,
 .image-hover:hover video {
-    transform: scale(1.05);
+    transform: scale(1.05); /* This is your zoom effect! */
 }
 
-/* REMOVED THE FOLLOWING RULES TO ELIMINATE THE BLURRY OVERLAY */
+/* >>>>>>>>>>>>> REMOVED THESE RULES TO ELIMINATE THE BLURRY OVERLAY <<<<<<<<<<<<< */
 /*
 .image-hover::after {
     content: '';
